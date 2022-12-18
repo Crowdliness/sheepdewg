@@ -5,7 +5,9 @@
 <br>
 <p>
 <!-- start tagline -->
-SheepDewg will eventually be an AI crowdshepherd which searches, connects, annotates, reuses project artifacts.
+SheepDewg might eventually become an AI crowdshepherd which searches, connects, annotates and delivers reusable project artifacts.
+
+Right now, SheepDewg is just an early stage fork ... not a Python package for pip yet ... this cloned fork is just a brand new pup.
 <!-- end tagline -->
 </p>
 <hr/>
