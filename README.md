@@ -1,6 +1,6 @@
 <div align="center">
 <br>
-<img src="https://raw.githubusercontent.com/allenai/tango/main/docs/source/_static/sheepdog.png" width="600"/>
+<img src="https://raw.githubusercontent.com/allenai/tango/main/docs/source/_static/sheepdog.png" width="100"/>
 <br>
 <br>
 <p>
