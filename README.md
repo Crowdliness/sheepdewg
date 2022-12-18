@@ -5,7 +5,7 @@
 <br>
 <p>
 <!-- start tagline -->
-Sheepdog shepherds, connects, caches, reuses research project artifacts.
+Sheepdog is an AI crowdshepherd which searches, connects, annotates, reuses project artifacts.
 <!-- end tagline -->
 </p>
 <hr/>
@@ -26,10 +26,13 @@ Sheepdog shepherds, connects, caches, reuses research project artifacts.
 
 ## Quick links
 
+To start off, you probably want to think about using [AI2's Tango](https://allenai.org/allennlp/software/ai2-tango) for your own collection of materials.
 - [Documentation](https://ai2-tango.readthedocs.io/)
 - [PyPI Package](https://pypi.org/project/ai2-tango/)
 - [Contributing](https://github.com/allenai/tango/blob/main/CONTRIBUTING.md)
 - [License](https://github.com/allenai/tango/blob/main/LICENSE)
+
+Sheepdog is PRE-pre-pre-alpha ... basically an educational learning project that might become something ... the intent of the Sheepdog project is develop something that might assist in staying current with the literature ... perhaps like an RSS reader, a tool for helping the AI researchers stay somewhat current with the larger crowd of people engaged in the rapidly developing world of AI research.  
 
 ## In this README
 
@@ -221,13 +224,13 @@ You can see a list of all available image tags [on GitHub](https://github.com/al
 
 <!-- start faq -->
 
-### Why is the library named Tango?
+### Why is the library named Sheepdog?
 
-The motivation behind this library is that we can make research easier by composing it into well-defined steps.  What happens when you choreograph a number of steps together?  Well, you get a dance.  And since our [team's leader](https://nasmith.github.io/) is part of a tango band, "AI2 Tango" was an obvious choice!
+The starting motivation behind Sheepdog, as a fork of Tango, is just to learn something about the larger process of using Python packages such as Sphinx or Jupyter to develop an AI literature classifier ... at first, we don't expect too much, ie, we are just tickled to now end to have the little guy and we have not even really started even trying to teach our new herding puppy to behave himself ... but long before the dog is useful, we will have learned more than a few things about what it's like to train a new puppy.
 
-### How can I debug my steps through the Tango CLI?
+### You probably want to start with the Tango CLI?
 
-You can run the `tango` command through [pdb](https://docs.python.org/3/library/pdb.html). For example:
+Think about how you can debug your own steps by running the `tango` command through [pdb](https://docs.python.org/3/library/pdb.html). For example:
 
 ```bash
 python -m pdb -m tango run config.jsonnet
