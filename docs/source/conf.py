@@ -104,7 +104,7 @@ html_theme_options = {
     },
     "dark_css_variables": {},
     "light_logo": "tango_final_squareish.png",
-    "dark_logo": "sheepdewg.png",
+    "dark_logo": "squaredewg.png",
     "footer_icons": [
         {
             "name": "GitHub",
