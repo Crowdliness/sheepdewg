@@ -40,8 +40,8 @@ The eventual long-term intent of the SheepDewg project is develop something that
 
 ## In this README
 
-- [Quick start](#quick-start)
-- [Installation](#installation)
+- [Quick start](#quick-start) for Tango
+- [Installation](#installation) of Tango
   - [Installing with PIP](#installing-with-pip)
   - [Installing with Conda](#installing-with-conda)
   - [Installing from source](#installing-from-source)
