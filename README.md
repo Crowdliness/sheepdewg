@@ -1,11 +1,11 @@
 <div align="center">
 <br>
-<img src="https://raw.githubusercontent.com/crowdliness/sheepdog/main/docs/source/_static/sheepdog.png" width="400"/>
+<img src="https://raw.githubusercontent.com/crowdliness/sheepdog/main/docs/source/_static/sheepdog.png" width="250"/>
 <br>
 <br>
 <p>
 <!-- start tagline -->
-AI2 Tango replaces messy directories and spreadsheets full of file versions by organizing experiments into discrete steps that can be cached and reused throughout the lifetime of a research project.
+Sheepdow herds crowdlieness AI artifacts which are cached and reused throughout the lifetime of a research project.
 <!-- end tagline -->
 </p>
 <hr/>
