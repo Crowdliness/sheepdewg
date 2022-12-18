@@ -1,6 +1,6 @@
 <div align="center">
 <br>
-<img src="https://raw.githubusercontent.com/crowdliness/sheepdog/main/docs/source/_static/sheepdog.png" width="250"/>
+<img src="https://raw.githubusercontent.com/crowdliness/sheepdog/main/docs/source/_static/sheepdog.png" width="400"/>
 <br>
 <br>
 <p>
