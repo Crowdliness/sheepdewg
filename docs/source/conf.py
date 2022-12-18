@@ -86,7 +86,7 @@ typehints_defaults = "comma"
 #
 html_theme = "furo"
 
-html_title = f"sheepdewg v{VERSION}"
+html_title = f"Forked from Tango v{VERSION}"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -104,7 +104,7 @@ html_theme_options = {
     },
     "dark_css_variables": {},
     "light_logo": "tango_final_squareish.png",
-    "dark_logo": "squaredewg.png",
+    "dark_logo": "tango_final_squareish.png",
     "footer_icons": [
         {
             "name": "GitHub",
