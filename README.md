@@ -5,7 +5,7 @@
 <br>
 <p>
 <!-- start tagline -->
-SheepDewg is an AI crowdshepherd which searches, connects, annotates, reuses project artifacts.
+SheepDewg will eventually be an AI crowdshepherd which searches, connects, annotates, reuses project artifacts.
 <!-- end tagline -->
 </p>
 <hr/>
@@ -32,9 +32,9 @@ To start off, you probably want to think about using [AI2's Tango](https://allen
 - [Contributing](https://github.com/allenai/tango/blob/main/CONTRIBUTING.md)
 - [License](https://github.com/allenai/tango/blob/main/LICENSE)
 
-Sheepdewg is PRE-pre-pre-alpha ... basically an educational learning project that might become something ... but still probably just a comedy routine of a pup.
+SheepDewg is just PRE-pre-pre-alpha PUP ... not a package ready to be installed with pip yet ... this dewg is only a pup ... basically an educational learning project that might teach it itself enough to become something ... so since this dewg has lots of lessons to learn, SheepDewg is still probably just a comedy routine of a pup ... for now, you can just laugh at it.
 
-The eventual long-term intent of the Sheepdewg project is develop something that might assist in staying current with the literature ... perhaps like an RSS reader, a tool for helping the AI researchers stay somewhat current with the larger crowd of people engaged in the rapidly developing world of AI research.  
+The eventual long-term intent of the SheepDewg project is develop something that might develop in White Fang fashion to be of fierce assistance on the trail, to help with the impossible task of staying current with the literature, while also sniffing out the wolves and squirrels ... think of something perhaps like an RSS reader with an IPython environment for running code on your machine's GPU while furnishing some indication of how efficient a model is ... bascially, just a lovable dewg for helping the AI researchers stay somewhat current with the much larger crowd of people engaged in the rapidly developing world of AI research.  
 
 ## In this README
 
