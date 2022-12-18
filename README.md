@@ -5,7 +5,7 @@
 <br>
 <p>
 <!-- start tagline -->
-Sheepdog is an AI crowdshepherd which searches, connects, annotates, reuses project artifacts.
+SheepDewg is an AI crowdshepherd which searches, connects, annotates, reuses project artifacts.
 <!-- end tagline -->
 </p>
 <hr/>
@@ -32,7 +32,9 @@ To start off, you probably want to think about using [AI2's Tango](https://allen
 - [Contributing](https://github.com/allenai/tango/blob/main/CONTRIBUTING.md)
 - [License](https://github.com/allenai/tango/blob/main/LICENSE)
 
-Sheepdog is PRE-pre-pre-alpha ... basically an educational learning project that might become something ... the intent of the Sheepdog project is develop something that might assist in staying current with the literature ... perhaps like an RSS reader, a tool for helping the AI researchers stay somewhat current with the larger crowd of people engaged in the rapidly developing world of AI research.  
+Sheepdewg is PRE-pre-pre-alpha ... basically an educational learning project that might become something ... but still probably just a comedy routine of a pup.
+
+The eventual long-term intent of the Sheepdewg project is develop something that might assist in staying current with the literature ... perhaps like an RSS reader, a tool for helping the AI researchers stay somewhat current with the larger crowd of people engaged in the rapidly developing world of AI research.  
 
 ## In this README
 
@@ -224,9 +226,9 @@ You can see a list of all available image tags [on GitHub](https://github.com/al
 
 <!-- start faq -->
 
-### Why is the library named Sheepdog?
+### Why is the library named Sheepdewg?
 
-The starting motivation behind Sheepdog, as a fork of Tango, is just to learn something about the larger process of using Python packages such as Sphinx or Jupyter to develop an AI literature classifier ... at first, we don't expect too much, ie, we are just tickled to now end to have the little guy and we have not even really started even trying to teach our new herding puppy to behave himself ... but long before the dog is useful, we will have learned more than a few things about what it's like to train a new puppy.
+It's a lovable pup. The starting motivation behind Sheepdewg, as a fork of Tango, is just to learn something about the larger process of using Python packages such as Sphinx or Jupyter to develop an AI literature classifier ... at first, we don't expect too much from the new Dewg, ie, we are just tickled to now end to have the little guy and we have not even really started even trying to teach our new herding puppy to behave himself ... but long before our Sheepdewg is useful, we will have learned more than a few things about what it's like to train a new puppy.
 
 ### You probably want to start with the Tango CLI?
 
