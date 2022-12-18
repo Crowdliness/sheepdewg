@@ -5,7 +5,7 @@
 <br>
 <p>
 <!-- start tagline -->
-Sheepdow herds crowdlieness AI artifacts which are cached and reused throughout the lifetime of a research project.
+Sheepdog shepherds, connects, caches, reuses research project artifacts.
 <!-- end tagline -->
 </p>
 <hr/>
