@@ -7,7 +7,7 @@
 <!-- start tagline -->
 SheepDewg might eventually become an AI crowdshepherd which searches, connects, annotates and delivers reusable project artifacts.
 
-Right now, SheepDewg is just an early stage fork ... not a Python package for pip yet ... this cloned fork is just an IDEA for a brand new pup.
+Right now, SheepDewg is ONLY an early stage fork ... not a Python package for `pip` yet ... this cloned fork is just an IDEA for our new pup.
 <!-- end tagline -->
 </p>
 <hr/>
