@@ -4,9 +4,19 @@
 
 *That is the FUNDAMENTAL question of Tango, isn't it?*
 
-SheepDewg was originally forked from [AI2's Tango](https://github.com/allenai/tango) with an an ambitious, possibly impossible goal of shepherding the larger world of research in AI ... whereas Tango's goal was much more responsible sequence of **STEPS** and, even if we want to think of a tango as complicated sequence of *dance steps* ... a *tango* actually produces a very achievable outcome ... as long as the steps happen, as choreographed ... regardless of the complexity of the ridiculously complicated research project *tango*.
+SheepDewg was originally forked from [AI2's Tango](https://github.com/allenai/tango) ... or SheepDewg is just twist on what Tango is.  
 
-So ... if we want our SheepDewg to get up and dance, it might help us if we look carefully at exactly how **Tango** was intended to be used.
+It involves teaching a new pup to dance ... in the larger world ... that's right, as the the SheepDewg learns to dance with a raucous crowd that has no clue what the SheepDewg is there for -- the SheepDewg will try to teach the the larger crowd of everyone doing research in AI ... how to master the Tango.
+
+*Just contemplate that vision for second ... have you ever seen such a* ***vision of whirled peas?!***
+
+Tango has an achievable, responsible, well-defined goal ... it's all about the steps ... breaking complex research projects down into well-choreographed sequences of managable, well-executed dance **STEPS.**
+
+Yes indeed!  A gorgeously, complex Tango is nothing but a complicated, but well-choreographed sequence of elegantly simple *dance steps.* 
+
+That's the beauty of it ... a *tango* actually produces a very achievable outcome ... with steps ... as long as the steps happen, as they were choreographed ... regardless of how ridiculously hot and sexy, the complicated research project *tango* is ... it's just a matter of "*Let's TANGO!*"
+
+So in the gigantic, wide-open world of AI research all over the globe ... if we want our SheepDewg to get up and dance and then herd the crowd, teaching others to dance the Tango ... it might help us if we look carefully at exactly how those steps were done ... so that when our SheepDewg gets out on the dance floor, the Dewg's **Tango** can still go forward just as the Dewg intends it to be danced.
 
 **Tango** is a Python library for choreographing machine learning research experiments by executing a series of **steps** ... *each and every* **STEP** *in the complicated dance matters*. Focus on the steps, and the dance will be beautiful ... *well, okay, maybe not always that beautiful, since beauty is in the eyes of the beholder, but at least the larger dance will get done as it should be done*.
 
