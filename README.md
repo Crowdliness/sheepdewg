@@ -36,7 +36,7 @@ To start off, you probably want to think about using [AI2's Tango](https://allen
 
 ***The SheepDewg is PRE-Pre-pre-IDEATION stages ... way before becoming an alpha pup.***
 
-The eventual long-term intent of the SheepDewg project is develop something that might become like WhiteFang to be of fierce assistance on the trail, to help with the impossible task of staying current with the literature, while also sniffing out the wolves and squirrels ... think of something perhaps like an RSS reader with an IPython environment for running code on your machine's GPU while furnishing some indication of how efficient a model is ... bascially, just a lovable dewg for helping the AI researchers stay somewhat current with the much larger crowd of people engaged in the rapidly developing world of AI research.  
+The eventual long-term intent of the SheepDewg project is develop something that might become like WhiteFang to be of fierce assistance on the trail, to help with the impossible task of staying current with the literature, while also sniffing out the wolves and squirrels ... think of something perhaps like an RSS reader with an IPython environment for running code on your machine's GPU while furnishing some indication of how efficient a model is ... bascially, just a lovable dewg for helping the AI researchers stay somewhat current with the much larger crowd of people engaged in the rapidly developing world of AI research *or even just a portion of that world, such as [transformers](https://github.com/Crowdliness/sheepdewg/blob/main/curatedlists/transformers.md)*.  
 
 ## In this README
 
