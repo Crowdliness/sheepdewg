@@ -2,23 +2,29 @@
 
 ## What is a Step?
 
-*That's an EXCELLENT question!*
+*That is the FUNDAMENTAL question of Tango, isn't it?*
 
-SheepDewg was originally forked from [AI2's Tango](https://github.com/allenai/tango) with an an ambitious, possibly impossible goal of shepherding the larger world of research in AI ... whereas Tango's goal was much more responsible and actually achievable in that it focused on a particular research project ... but it might help if we look at how Tango was intended to be used.
+SheepDewg was originally forked from [AI2's Tango](https://github.com/allenai/tango) with an an ambitious, possibly impossible goal of shepherding the larger world of research in AI ... whereas Tango's goal was much more responsible sequence of **STEPS** and, even if we want to think of a tango as complicated sequence of *dance steps* ... a *tango* actually produces a very achievable outcome ... as long as the steps happen, as choreographed ... regardless of the complexity of the ridiculously complicated research project *tango*.
 
-Tango is a Python library for choreographing machine learning research experiments by executing
-a series of steps.
+So ... if we want our SheepDewg to get up and dance, it might help us if we look carefully at exactly how **Tango** was intended to be used.
+
+**Tango** is a Python library for choreographing machine learning research experiments by executing a series of **steps** ... *each and every* **STEP** *in the complicated dance matters*. Focus on the steps, and the dance will be beautiful ... *well, okay, maybe not always that beautiful, since beauty is in the eyes of the beholder, but at least the larger dance will get done as it should be done*.
+
+We should think about why/how steps matter so much. The scope of work in every projects must be managed ... even though humans will make heroic efforts to work as a team, the work of a project that needs to be completed MUST BE broken down into tasks with extremely clear, well-defined SMART objectives ... furthermore, those tasks MUST BE broken down precisely into steps which must be precisely executed. The whole thing falls apart if well-planned steps are not executed precisely as planned ... and we must have some sort of feedback or test to know that each **step** has been completed AND that each task objective has been achieved AND that the overall project mission has been accomplished. 
+
 A step can do anything, really, such as [prepare a dataset](tango.integrations.datasets.LoadDataset), [train a model](tango.integrations.torch.TorchTrainStep), send an email to your mother wishing her happy birthday, *etc*.
 
-Concretely, each step is just a subclass of {class}`~tango.step.Step`, where the {meth}`~tango.step.Step.run` method in particular defines what the step actually does.
-So anything that can be implemented in Python can be run as a step.
+Concretely, in the context of our Python programming language, each **step** is just a subclass of {class}`~tango.step.Step`, where the {meth}`~tango.step.Step.run` method in particular defines what the **step** actually does.
+
+Anything that can be implemented in Python can be run as a **step**.
 
 Steps can also depend on other steps in that the output of one step can be part of the input to another step.
-Therefore, the steps that make up an experiment form a [directed graph](tango.step_graph.StepGraph).
 
-The concept of the {class}`~tango.step.Step` is the bread and butter that makes Tango so general and powerful.
-*So* powerful, in fact, that you might be wondering if Tango is [Turing-complete](https://en.wikipedia.org/wiki/Turing_completeness)?
-Well, we don't know yet, but we can say at least that Tango is **Tango-complete** 😉
+Therefore, the steps that make up an experiment form a *digraph* or [directed graph](tango.step_graph.StepGraph) ... a research project is a series of connected step-by-step-by-step digraphs ... research projects are not random steps that just spring into existence ... there might be steps in a direction that seem to go nowhere and retreat ... but we can learn something from those steps ... in fact, we can [and should] design so that our experimental dance forays have some sort on intelligence or theme to them so that we not just making random steps in a drunken, hallucinogenic slumber, but so that the dance gives us opportunities to compare, explore, contrast and learn EFFICIENTLY ... it is a waste of resources to just `RUN` or hit the `compute` button to see what happens.
+
+It is THE STEP ... the concept of the {class}`~tango.step.Step` is the bread and butter that makes Tango so general and powerful ... there are a host of OTHER steps to master. For example, the [transformer step](transformer_step.md) might not exactly be the *first* **step** that everyone will want to master in your machine learning journey, if you are interested in NLP, then the [transformer step](transformer_step.md) is certainly going to come up at a pretty early point in the dance ... in trying to master the the [transformer step](transformer_step.md), you will undoubtably find that you have to to go back and spend even more time on other steps that you either did not realize were that important or maybe even thought you would not need.
+
+All in all, you will soon recognize that the concept of the {class}`~tango.step.Step` is *so* powerful that you that you might be wondering if a SheepDewg dancing the Tango is [Turing-complete](https://en.wikipedia.org/wiki/Turing_completeness)?  Well, we don't know yet, but believe that a SheepDewg dancing the Tango is about as **Tango-complete** as you you will see, until somebody teaches the old Dewg more new tricks. 😉
 
 ## Configuration files
 
