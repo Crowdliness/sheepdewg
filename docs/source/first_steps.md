@@ -2,6 +2,10 @@
 
 ## What is a Step?
 
+*That's an EXCELLENT question!*
+
+SheepDewg was originally forked from [AI2's Tango](https://github.com/allenai/tango) with an an ambitious, possibly impossible goal of shepherding the larger world of research in AI ... whereas Tango's goal was much more responsible and actually achievable in that it focused on a particular research project ... but it might help if we look at how Tango was intended to be used.
+
 Tango is a Python library for choreographing machine learning research experiments by executing
 a series of steps.
 A step can do anything, really, such as [prepare a dataset](tango.integrations.datasets.LoadDataset), [train a model](tango.integrations.torch.TorchTrainStep), send an email to your mother wishing her happy birthday, *etc*.
