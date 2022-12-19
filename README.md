@@ -263,7 +263,7 @@ that the step has been updated.
 <!-- start team -->
 
 **SheepDewg** is developed and maintained by the Crowdliness Herd, backed by [the Crowdliness.ORG](https://crowdliness.org/).
-The mission of Crowdliness.ORG is to expand and enhance a more crowdly view of life ... to celebrate the joy of artistic, creative science ... doing things that generally contribute to humanity through free, extensible, open source development and *crowdliness* social engineering to encourage more social, interactive science and technoloogical development that raises the tide of development in knowledge to lift all boats.
+The mission of Crowdliness.ORG is to expand and enhance a more crowdly view of life ... to celebrate the joy of artistic, creative science by doing PRACTICAL learning projects ... that, first of all, teach us something about how the crowd is developing technology ... and, secondly, might actually possibly inform how we might contribute to humanity through free, extensible, open source development ... mostly, it's about the rambunctious, ad hoc, *crowdliness* of open source development ... *just doing it* and making up the rules as we learn them is how we do social engineering ... Crowdliness is about encouraging more social experimentation, more interactive science and collaborative technoloogical development ... the general aim of *just doing it* is to learn something, which might help us to raise the tide of development in terms of capability and knowledge which can lift all boats.
 <!-- end team -->
 
 ## License
