@@ -262,17 +262,14 @@ that the step has been updated.
 
 <!-- start team -->
 
-**ai2-tango** is developed and maintained by the AllenNLP team, backed by [the Allen Institute for Artificial Intelligence (AI2)](https://allenai.org/).
-AI2 is a non-profit institute with the mission to contribute to humanity through high-impact AI research and engineering.
-To learn more about who specifically contributed to this codebase, see [our contributors](https://github.com/allenai/tango/graphs/contributors) page.
-
+**SheepDewg** is developed and maintained by the Crowdliness Herd, backed by [the Crowdliness.ORG](https://crowdliness.org/).
+The mission of Crowdliness.ORG is to expand and enhance a more crowdly view of life ... to celebrate the joy of artistic, creative science ... doing things that generally contribute to humanity through free, extensible, open source development and *crowdliness* social engineering to encourage more social, interactive science and technoloogical development that raises the tide of development in knowledge to lift all boats.
 <!-- end team -->
 
 ## License
 
 <!-- start license -->
 
-**ai2-tango** is licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-A full copy of the license can be found [on GitHub](https://github.com/allenai/tango/blob/main/LICENSE).
+**SheepDewg** is licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 <!-- end license -->
