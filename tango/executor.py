@@ -1,9 +1,12 @@
 import logging
 import warnings
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Dict, Optional, Sequence, TypeVar
+from typing import TYPE_CHECKING, Dict, List, Optional, Sequence, TypeVar
 
-from .common.logging import log_exception
+from rich import get_console
+from rich.table import Table
+
+from .common.logging import cli_logger, log_exception
 from .common.registrable import Registrable
 from .common.util import import_extra_module
 from .step_graph import StepGraph
@@ -45,6 +48,54 @@ class ExecutorOutput:
 
     not_run: Dict[str, ExecutionMetadata] = field(default_factory=dict)
     """Steps that were ignored (usually because of failed dependencies)."""
+
+    def display(self) -> None:
+        table = Table(caption_style="")
+        table.add_column("Step Name", justify="left", style="cyan")
+        table.add_column("Status", justify="left")
+        table.add_column("Results", justify="left")
+        all_steps = dict(self.successful)
+        all_steps.update(self.failed)
+        all_steps.update(self.not_run)
+        for step_name in sorted(all_steps):
+            status_str: str
+            result_str: str = "[grey62]N/A[/]"
+            if step_name in self.failed:
+                status_str = "[red]\N{ballot x} failed[/]"
+                execution_metadata = self.failed[step_name]
+                if execution_metadata.logs_location is not None:
+                    result_str = f"[cyan]{execution_metadata.logs_location}[/]"
+            elif step_name in self.not_run:
+                status_str = "[yellow]- not run[/]"
+            elif step_name in self.successful:
+                status_str = "[green]\N{check mark} succeeded[/]"
+                execution_metadata = self.successful[step_name]
+                if execution_metadata.result_location is not None:
+                    result_str = f"[cyan]{execution_metadata.result_location}[/]"
+                elif execution_metadata.logs_location is not None:
+                    result_str = f"[cyan]{execution_metadata.logs_location}[/]"
+            else:
+                continue
+
+            table.add_row(step_name, status_str, result_str)
+
+        caption_parts: List[str] = []
+        if self.failed:
+            caption_parts.append(f"[red]\N{ballot x}[/] [italic]{len(self.failed)} failed[/]")
+        if self.successful:
+            caption_parts.append(
+                f"[green]\N{check mark}[/] [italic]{len(self.successful)} succeeded[/]"
+            )
+        if self.not_run:
+            caption_parts.append(f"[italic]{len(self.not_run)} not run[/]")
+        table.caption = ", ".join(caption_parts)
+
+        if logger.isEnabledFor(logging.INFO):
+            logger.info(table)
+        elif cli_logger.isEnabledFor(logging.INFO):
+            cli_logger.info(table)
+        else:
+            get_console().print(table)
 
 
 class Executor(Registrable):
@@ -127,14 +178,14 @@ class Executor(Registrable):
     # serialize steps somehow, and the easiest way to serialize a step is by serializing the
     # whole step config (which can be accessed via the step graph).
 
-    def execute_sub_graph_for_step(
-        self, step_graph: StepGraph, step_name: str, run_name: Optional[str] = None
+    def execute_sub_graph_for_steps(
+        self, step_graph: StepGraph, *step_names: str, run_name: Optional[str] = None
     ) -> ExecutorOutput:
         """
         Execute the sub-graph associated with a particular step in a
         :class:`~tango.step_graph.StepGraph`.
         """
-        sub_graph = step_graph.sub_graph(step_name)
+        sub_graph = step_graph.sub_graph(*step_names)
         return self.execute_step_graph(sub_graph, run_name=run_name)
 
 

@@ -345,7 +345,11 @@ def pop_and_construct_arg(
                 "get unexpected behavior."
             )
 
-    popped_params = params.pop(name, default) if default != _NO_DEFAULT else params.pop(name)
+    try:
+        popped_params = params.pop(name, default) if default != _NO_DEFAULT else params.pop(name)
+    except ConfigurationError:
+        raise ConfigurationError(f'Missing key "{name}" for {class_name}')
+
     if popped_params is None:
         return None
 
@@ -456,7 +460,7 @@ def construct_arg(
                     result = annotation.from_params(popped_params)
 
             if isinstance(result, Step):
-                expected_return_type = args[0]
+                expected_return_type = args[0] if args else None
                 if isinstance(result, FunctionalStep):
                     return_type = inspect.signature(result.WRAPPED_FUNC).return_annotation
                 else:
@@ -469,7 +473,9 @@ def construct_arg(
                     )
                 else:
                     try:
-                        if not issubclass(return_type, expected_return_type):
+                        if expected_return_type is not None and not issubclass(
+                            return_type, expected_return_type
+                        ):
                             raise ConfigurationError(
                                 f"Step {result.name} returns {return_type}, but "
                                 f"we expected {expected_return_type}."
@@ -508,7 +514,7 @@ def construct_arg(
             )
     elif annotation == str:
         # Strings are special because we allow casting from Path to str.
-        if type(popped_params) == str or isinstance(popped_params, Path):
+        if isinstance(popped_params, str) or isinstance(popped_params, Path):
             return str(popped_params)  # type: ignore
         else:
             raise TypeError(
@@ -555,7 +561,14 @@ def construct_arg(
     elif origin in (Tuple, tuple):
         value_list = []
 
-        for i, (value_cls, value_params) in enumerate(zip(annotation.__args__, popped_params)):
+        value_types = list(annotation.__args__)
+        if value_types[-1] == Ellipsis:
+            # Variable length tuples, e.g. 'Tuple[int, ...]', we set value_types to '[int] * len(popped_params)'.
+            value_types = value_types[:-1] + [value_types[-2]] * (
+                len(popped_params) - len(annotation.__args__) + 1
+            )
+
+        for i, (value_cls, value_params) in enumerate(zip(value_types, popped_params)):
             value = construct_arg(
                 str(value_cls),
                 argument_name + f".{i}",

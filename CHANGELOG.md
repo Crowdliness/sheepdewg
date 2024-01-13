@@ -7,9 +7,76 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v1.3.2](https://github.com/allenai/tango/releases/tag/v1.3.2) - 2023-10-27
+
+### Fixed
+
+- Fix issues with gcloud auth in beaker executor.
+
+## [v1.3.1](https://github.com/allenai/tango/releases/tag/v1.3.1) - 2023-10-25
+
+### Fixed
+
+- Minor bugs in the `GSWorkspace()`.
+
+### Changed
+
+- Added CLI-style execution functions for experiments defined in Python.
+- Added `display()` to `ExecutorOutput` for producing a table that summarizes the run.
+
+## [v1.3.0](https://github.com/allenai/tango/releases/tag/v1.3.0) - 2023-10-13
+
+### Added
+ - Added the `Workspace.remove_step()` method to safely remove steps.
+- The `GSWorkspace()` can now be initialized with google cloud bucket subfolders.
+
+### Changed
+
+- The `BeakerExecutor` now uses the HEAD commit at the time the executor is instantiated to executor a step instead of the HEAD commit at the time the step is run.
+
+### Fixed
+
+- Removed unnecessary code coverage dev requirements.
+- Fixed issue where new version of torch caused no LR schedulers to be registered.
+- Updated pinned versions of jax, jaxlib, and flax.
+
+## [v1.2.1](https://github.com/allenai/tango/releases/tag/v1.2.1) - 2023-04-06
+
+### Added
+
+- Added the following workspace methods to support the Tango viz UI: `Workspace.search_registered_runs()`, `Workspace.search_step_info()`, `Workspace.num_registered_runs()`, and `Workspace.num_steps()`.
+
+### Fixed
+
+- Fixes a bug where `FromParams` would fail to parse when an object takes a `Step` argument directly.
+- Changed a name so we don't override the built-in name `set`.
+- Fixed a bug that would cause O(n^2) memory consumption in dense step graphs.
+
+
+## [v1.2.0](https://github.com/allenai/tango/releases/tag/v1.2.0) - 2023-02-10
+
 ### Added
 
 - You can now add arguments to steps without invalidating the cache. See `Step.SKIP_DEFAULT_ARGUMENTS`.
+- Fixed integration status messages in `tango info` command.
+- Added abstractions for `RemoteClient`, `RemoteStepCache`, and `RemoteWorkspace`.
+- Added a GS integration that comes with `GSWorkspace`, a remote `Workspace` implementation that uses google cloud storage.
+- You can now bind functional steps to the underlying `Step` instance with `@step(bind=True)`, meaning the first argument to the function will be a `Step`.
+- Added `ShellStep` for running arbitrary shell commands.
+- Added `@make_registrable` decorator to make arbitrary functions registrable, to make it easier to refer to them in tango configurations.
+
+### Fixed
+
+- Jsonnet parsing is now much faster and works on Windows.
+- Warnings about locks are now reliably printed every 30 seconds
+- We now make sure Beaker jobs have the latest version of beaker-py, so that we're compatible with the latest API changes.
+- Stopping early now works when the metric doesn't change at all.
+- Fixed bug with `FromParams` which didn't handle variable length tuples correctly.
+
+### Changed
+
+- The default log level for Tango is now `warning`.
+- You can specify multiple steps with `-s` from the `tango run` command.
 
 
 ## [v1.1.0](https://github.com/allenai/tango/releases/tag/v1.1.0) - 2022-12-01

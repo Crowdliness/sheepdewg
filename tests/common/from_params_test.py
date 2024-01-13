@@ -31,6 +31,7 @@ from tango.common.lazy import Lazy
 from tango.common.params import Params
 from tango.common.registrable import Registrable
 from tango.common.testing import TangoTestCase
+from tango.step import Step
 
 
 class TestFromParams(TangoTestCase):
@@ -140,6 +141,15 @@ class TestFromParams(TangoTestCase):
 
         assert c.name == "extra_c"  # type: ignore[attr-defined]
         assert c.size == 20  # type: ignore[attr-defined]
+
+    def test_variable_length_tuple(self):
+        class Foo(FromParams):
+            def __init__(self, x: Tuple[Optional[int], ...]):
+                self.x = x
+
+        assert Foo.from_params({"x": [None, 1, 2, 3]}).x == (None, 1, 2, 3)
+        assert Foo.from_params({"x": [1, 2]}).x == (1, 2)
+        assert Foo.from_params({"x": [1]}).x == (1,)
 
     def test_union(self):
         class A(FromParams):
@@ -460,7 +470,7 @@ class TestFromParams(TangoTestCase):
         assert instance.x == 42
         assert instance.a == -1
         assert len(instance.rest) == 1  # type: ignore
-        assert type(instance.rest["raw_a"]) == str  # type: ignore
+        assert isinstance(instance.rest["raw_a"], str)  # type: ignore
         assert instance.rest["raw_a"] == "123"  # type: ignore
 
     def test_kwargs_are_passed_to_deeper_superclasses(self):
@@ -516,7 +526,6 @@ class TestFromParams(TangoTestCase):
         Testing.from_params(Params({"lazy_object": {"string": test_string}}))
 
     def test_lazy_and_from_params_can_be_pickled(self):
-
         import pickle
 
         baz = Baz.from_params(Params({"bar": {"foo": {"a": 2}}}))
@@ -559,7 +568,7 @@ class TestFromParams(TangoTestCase):
         assert test3.lazy3.a == 3
         assert test3.lazy4 is None
 
-        with pytest.raises(ConfigurationError, match='key "lazy1" is required'):
+        with pytest.raises(ConfigurationError, match='Missing key "lazy1" for Testing'):
             Testing.from_params(Params({}))
 
     def test_wrapper_kwargs_passed_down(self):
@@ -1041,6 +1050,25 @@ class TestFromParams(TangoTestCase):
         WidgetGizmo.VERSION = "003"
         assert hash_before != det_hash(default_lazy)
         assert default_lazy.construct().x == 0  # type: ignore[attr-defined]
+
+    def test_from_params_that_takes_step_directly(self):
+        class FakeStepBase(Step):
+            def run(self, test_input: int) -> int:  # type: ignore
+                return test_input
+
+        @FakeStepBase.register("fake_step")
+        class FakeStep(FakeStepBase):
+            def run(self, test_input: int) -> int:  # type: ignore
+                return test_input * 2
+
+        class FromParamsWithStepInput(FromParams):
+            def __init__(self, fake_step: FakeStepBase):
+                self.fake_step = fake_step
+
+        o = FromParamsWithStepInput.from_params(
+            {"fake_step": {"type": "fake_step", "test_input": 1}}
+        )
+        assert isinstance(o.fake_step, FakeStep)
 
 
 class MyClass(FromParams):

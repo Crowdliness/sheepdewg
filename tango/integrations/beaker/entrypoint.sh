@@ -35,7 +35,8 @@ echo "
 "
 
 # Clone the repo and checkout the target commit.
-gh repo clone "$GITHUB_REPO" .
+gh repo clone "$GITHUB_REPO" src
+cd src
 git checkout "$GIT_REF"
 
 echo "
@@ -79,16 +80,22 @@ else
     conda activate "$VENV_NAME"
 fi
 
+# Every time Beaker changes their APIs, we need to upgrade beaker-py. This happens all the
+# time, so we make sure we have the latest.
+# We do this when the conda environment is up, but before the requirements, so that
+# requirements can request a particular beaker-py version if they want.
+pip install --upgrade beaker-py
+
 if [[ -z "$INSTALL_CMD" ]]; then
-    # Check for a 'requirements.txt' and/or 'setup.py' file.
-    if [[ -f 'setup.py' ]] && [[ -f "$PIP_REQUIREMENTS_FILE" ]]; then
-        echo "[TANGO] Installing packages from 'setup.py' and '$PIP_REQUIREMENTS_FILE'..."
+    # Check for a 'requirements.txt' and/or 'setup.py/pyproject.toml/setup.cfg' file.
+    if ( [[ -f 'setup.py' ]] || [[ -f 'pyproject.toml' ]] || [[ -f 'setup.cfg' ]] ) && [[ -f "$PIP_REQUIREMENTS_FILE" ]]; then
+        echo "[GANTRY] Installing local project and packages from '$PIP_REQUIREMENTS_FILE'..."
         pip install . -r "$PIP_REQUIREMENTS_FILE"
-    elif [[ -f 'setup.py' ]]; then
-        echo "[TANGO] Installing packages from 'setup.py'..."
+    elif ( [[ -f 'setup.py' ]] || [[ -f 'pyproject.toml' ]] || [[ -f 'setup.cfg' ]] ); then
+        echo "[GANTRY] Installing local project..."
         pip install .
     elif [[ -f "$PIP_REQUIREMENTS_FILE" ]]; then
-        echo "[TANGO] Installing dependencies from '$PIP_REQUIREMENTS_FILE'..."
+        echo "[GANTRY] Installing packages from '$PIP_REQUIREMENTS_FILE'..."
         pip install -r "$PIP_REQUIREMENTS_FILE"
     fi
 else

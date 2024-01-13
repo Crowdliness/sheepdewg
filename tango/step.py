@@ -364,7 +364,22 @@ class Step(Registrable, Generic[T]):
                     f"This happened when constructing an object of type {cls}."
                 )
 
-        raw_step_config = deepcopy(params.as_dict(quiet=True))
+        # Build up a raw step config
+        def replace_steps_with_refs(o: Any) -> Any:
+            if isinstance(o, (list, tuple, set)):
+                return o.__class__(replace_steps_with_refs(i) for i in o)
+            elif isinstance(o, (dict, Params)):
+                result = {key: replace_steps_with_refs(value) for key, value in o.items()}
+                if isinstance(o, dict):
+                    return result
+                elif isinstance(o, Params):
+                    return Params(result, history=o.history)
+            elif isinstance(o, Step):
+                return {"type": "ref", "ref": o.name}
+            else:
+                return deepcopy(o)
+
+        raw_step_config = replace_steps_with_refs(params.as_dict(quiet=True))
 
         as_registrable = cast(Type[Registrable], cls)
         if "type" in params and params["type"] not in as_registrable.list_available():
@@ -381,6 +396,13 @@ class Step(Registrable, Generic[T]):
 
         if issubclass(subclass, FunctionalStep):
             parameters = infer_method_params(subclass, subclass.WRAPPED_FUNC, infer_kwargs=False)
+            if subclass.BIND:
+                if "self" not in parameters:
+                    raise ConfigurationError(
+                        f"Functional step for {subclass.WRAPPED_FUNC} is bound but is missing argument 'self'"
+                    )
+                else:
+                    del parameters["self"]
         else:
             parameters = infer_method_params(subclass, subclass.run, infer_kwargs=False)
             del parameters["self"]
@@ -534,7 +556,8 @@ class Step(Registrable, Generic[T]):
         """Returns the unique ID for this step.
 
         Unique IDs are of the shape ``$class_name-$version-$hash``, where the hash is the hash of the
-        inputs for deterministic steps, and a random string of characters for non-deterministic ones."""
+        inputs for deterministic steps, and a random string of characters for non-deterministic ones.
+        """
         if self.unique_id_cache is None:
             self.unique_id_cache = self.class_name
             if self.VERSION is not None:
@@ -761,19 +784,24 @@ class Step(Registrable, Generic[T]):
 
 class FunctionalStep(Step):
     WRAPPED_FUNC: ClassVar[Callable]
+    BIND: ClassVar[bool] = False
 
     @property
     def class_name(self) -> str:
         return self.WRAPPED_FUNC.__name__
 
     def run(self, *args, **kwargs):
-        return self.__class__.WRAPPED_FUNC(*args, **kwargs)
+        if self.BIND:
+            return self.WRAPPED_FUNC(*args, **kwargs)
+        else:
+            return self.__class__.WRAPPED_FUNC(*args, **kwargs)
 
 
 def step(
     name: Optional[str] = None,
     *,
     exist_ok: bool = False,
+    bind: bool = False,
     deterministic: bool = True,
     cacheable: Optional[bool] = None,
     version: Optional[str] = None,
@@ -788,6 +816,10 @@ def step(
     :param exist_ok:
         If True, overwrites any existing step registered under the same ``name``. Else,
         throws an error if a step is already registered under ``name``.
+    :param bind: If ``True``, the first argument passed to the step function will
+        be the underlying :class:`Step` instance, i.e. the function will be called as an instance method.
+        In this case you must name the first argument 'self' or you will get a
+        :class:`~tango.common.exceptions.ConfigurationError` when instantiating the class.
 
     See the :class:`Step` class for an explanation of the other parameters.
 
@@ -801,6 +833,10 @@ def step(
         @step(version="001")
         def add(a: int, b: int) -> int:
             return a + b
+
+        @step(bind=True)
+        def bound_step(self) -> None:
+            assert self.work_dir.is_dir()
     """
 
     def step_wrapper(step_func):
@@ -814,6 +850,7 @@ def step(
             METADATA = metadata or {}
 
             WRAPPED_FUNC = step_func
+            BIND = bind
 
         return WrapperStep
 
