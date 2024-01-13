@@ -4,7 +4,7 @@
 
 *That is the FUNDAMENTAL question of Tango, isn't it?*
 
-SheepDewg was originally forked from [AI2's Tango](https://github.com/allenai/tango) ... so the SheepDewg, like Tango ... all about the steps the dewg uses to parse data then stalk, herd, assemble and load information ... breaking complex research projects down into well-choreographed sequences of managable, well-executed dewg **STEPS.**
+SheepDewg was originally forked from [AI2's Tango](https://github.com/allenai/tango) ... so the SheepDewg, like Tango ... is all about the stalking steps of the sheepdewg to collect, parse, herd, assemble and load information ... breaking complex research projects down into well-choreographed sequences of managable, well-executed dewg **STEPS.**
 
 Yes indeed!  A gorgeously, complex Tango is nothing but a complicated, but well-choreographed sequence of elegantly simple *dance steps.* 
 
