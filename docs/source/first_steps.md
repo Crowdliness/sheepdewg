@@ -4,13 +4,7 @@
 
 *That is the FUNDAMENTAL question of Tango, isn't it?*
 
-SheepDewg was originally forked from [AI2's Tango](https://github.com/allenai/tango) ... or SheepDewg is just twist on what Tango is.  
-
-It involves teaching a new pup to dance ... in the larger world ... that's right, as the the SheepDewg learns to dance with a raucous crowd that has no clue what the SheepDewg is there for -- the SheepDewg will try to teach the the larger crowd of everyone doing research in AI ... how to master the Tango.
-
-*Just contemplate that vision for second ... have you ever seen such a* ***vision of whirled peas?!***
-
-Tango has an achievable, responsible, well-defined goal ... it's all about the steps ... breaking complex research projects down into well-choreographed sequences of managable, well-executed dance **STEPS.**
+SheepDewg was originally forked from [AI2's Tango](https://github.com/allenai/tango) ... so the SheepDewg, like Tango, is all about the steps of using data to stalk, herd, load information ... breaking complex research projects down into well-choreographed sequences of managable, well-executed dewg **STEPS.**
 
 Yes indeed!  A gorgeously, complex Tango is nothing but a complicated, but well-choreographed sequence of elegantly simple *dance steps.* 
 
