@@ -1,5 +1,7 @@
 # First Steps
 
+AI2 Tango replaces messy directories and spreadsheets ... to organizing experiments into discrete steps ... which cached and reused throughout the lifetime of a research project.
+
 ## What is a Step?
 
 *That is the FUNDAMENTAL question of Tango, isn't it?*
